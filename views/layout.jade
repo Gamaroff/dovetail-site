@@ -1,0 +1,44 @@
+doctype 5
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/bootstrap-responsive.css')
+        script(type='text/javascript', src='/js/lib/jquery-1.8.3.min.js')
+        script(type='text/javascript', src='/js/lib/bootstrap.min.js')
+        script(type='text/javascript', src='/js/lib/smoothscroll.js')
+
+        style
+            body {
+                padding-top: 60px; /* When using the navbar-top-fixed */
+            }
+
+
+        block header
+    body(data-spy='scroll', data-target='.navbar')
+
+
+        .navbar.navbar-fixed-top
+            .navbar-inner
+                a.brand(href='#', style='margin-top: 0px !important; margin-bottom: 0px !important')
+                    img(src='/img/logo/dlogo1.1.png')
+                ul.nav
+                    li.active
+                        a.smoothScroll(href='#whatwedo') Home
+                    li
+                        a.smoothScroll(href='#methodology') Methodology
+                    li
+                        a.smoothScroll(href='#technicalservices') Technical services
+                    li
+                        a.smoothScroll(href='#about') About
+                    li
+                        a.smoothScroll(href='#contact') Contact
+
+        .container
+
+
+
+
+            block content
+
+
