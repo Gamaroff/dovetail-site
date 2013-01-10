@@ -1,5 +1,30 @@
 extends layout
 
+block header
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDs-tp9HvtxPEz1J8goLkQzQ-6vQSKxF3k&sensor=false')
+
+    script(type='text/javascript')
+
+        $(function(){
+
+
+
+            var myLatlng = new google.maps.LatLng(-33.885694,151.211776);
+              var mapOptions = {
+                zoom: 14,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              }
+              var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+              var marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  title:"Level 3, 2 Lacey St, Sydney, Australia"
+              });
+
+        });
+
 block content
 
     .row-fluid#whatwedo
@@ -28,7 +53,7 @@ block content
                 .thumbnail
                     img(src='/img/elements/dovetail_3.jpg', alt='')
                     .caption
-                        h3 We can 
+                        h3 We can
 
                         p help you develop web services and applications for PC & Notebooks, Smartphones, Tablets and Web TV.
 
@@ -43,13 +68,14 @@ block content
 
             hr#technicalservices
 
-            h2 Technical services
+
 
             .media
                 a.pull-left(href="#")
                     img.media-object(src="/img/elements/dovetail_4.jpg")
 
                 .media-body
+                    h2.media-heading Technical services
 
 
                     p We believe working with the education industry to successfully deliver IT projects requires a tailored approach which takes into account the industry's distinct characteristics.
@@ -72,15 +98,20 @@ block content
                         li Cloud services and data warehousing
                         li Networking
 
+    .row
+        .span12
+
             hr#methodology
 
-            h2 Methodology
+
 
             .media
                 a.pull-left(href="#")
                     img.media-object(src="/img/elements/dovetail_5.jpg")
 
                 .media-body
+
+                    h2.media-heading Methodology
 
                     p We work with organisations during any or all of the project life cycle phases.
 
@@ -100,9 +131,10 @@ block content
                         li Aiming to provide strong technical governance to ensure the team produces high-quality outcomes reliably and affordably.
 
 
-            hr#about
+    .row
+        .span12
 
-            h2 About
+            hr#about
 
             .media
                 a.pull-left(href="#")
@@ -110,29 +142,73 @@ block content
 
                 .media-body
 
+                    h2.media-heading About
+
                     p Dovetail Digital Healthcare and Education Pty. Ltd. is based in Sydney, Australia and was incorporated in September 2012.
 
                     p The principal is Dominic Hebert who has over 12 years of experience in the commercial development of IT and telecommunications services with particular emphasis on mobile or web services and software development.
 
+    .row
+        .span12
+
             hr#contact
 
-            h2 Contact
+            .span2
 
-            .media
-                a.pull-left(href="#")
-                    img.media-object(src="/img/elements/dovetail_7.jpg")
+                img.media-object(src="/img/elements/dovetail_7.jpg")
 
-                .media-body
+            .span6
 
-                    p Clients, please contact us for an obligation free initial consultation. If you're in Sydney, we'd be happy to meet in person.
 
-                    p Candidates, enquiries are welcome and please email your details to our recruitment drop box.
+                h2.media-heading Contact
 
-                    p Investors, please email our drop box with any enquiries or let us know when we can contact you to discuss your interest.
+                p Clients, please contact us for an obligation free initial consultation. If you're in Sydney, we'd be happy to meet in person.
 
-                    p Call: +61 (0) 457 564 773 | Skype: dovetaildhe
-                    p Email: contact@dovetaildhe.com | recruitment@dovetaildhe.com | investors@dovetaildhe.com
-                    p Meet: Level 3, 2 Lacey St, Sydney, Australia
+                p Candidates, enquiries are welcome and please email your details to our recruitment drop box.
+
+                p Investors, please email our drop box with any enquiries or let us know when we can contact you to discuss your interest.
+
+                hr
+
+                #map_canvas(style='width: 100%; height: 400px;')
+
+
+            .span3
+
+                ul.nav.nav-list
+                    li
+
+                        span
+                            i.icon-phone
+                            span +61 (0) 457 564 773
+                    li
+
+                        a(href='mailto:contact@dovetaildhe.com')
+                            i.icon-envelope-alt
+                            span contact@dovetaildhe.com
+                    li
+
+                        a(href='mailto:recruitment@dovetaildhe.com')
+                            i.icon-envelope-alt
+                            span recruitment@dovetaildhe.com
+                    li
+
+                        a(href='mailto:investors@dovetaildhe.com')
+                            i.icon-envelope-alt
+                            span investors@dovetaildhe.com
+                    li
+                        span
+                            i.icon-home
+                            span Level 3, 2 Lacey St, Sydney, Australia
+                hr
+
+                script(type='text/javascript', src='http://download.skype.com/share/skypebuttons/js/skypeCheck.js')
+                a(href='skype:dovetaildhe?call')
+                    img(src='http://download.skype.com/share/skypebuttons/buttons/call_blue_white_124x52.png', style='border: none;', width='124', height='52', alt='Skype Me™!')
+
+                strong dovetaildhe
+
+
 
 
 

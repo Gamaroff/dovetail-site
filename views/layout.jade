@@ -3,6 +3,8 @@ html
     head
         title= title
         link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/css/font-awesome-ie7.min.css')
         link(rel='stylesheet', href='/css/bootstrap-responsive.css')
         script(type='text/javascript', src='/js/lib/jquery-1.8.3.min.js')
         script(type='text/javascript', src='/js/lib/bootstrap.min.js')
@@ -15,6 +17,7 @@ html
 
 
         block header
+
     body(data-spy='scroll', data-target='.navbar')
 
 
@@ -26,9 +29,9 @@ html
                     li.active
                         a.smoothScroll(href='#whatwedo') Home
                     li
-                        a.smoothScroll(href='#methodology') Methodology
-                    li
                         a.smoothScroll(href='#technicalservices') Technical services
+                    li
+                        a.smoothScroll(href='#methodology') Methodology
                     li
                         a.smoothScroll(href='#about') About
                     li
