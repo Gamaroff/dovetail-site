@@ -170,35 +170,28 @@ block content
                 form.well
 
                     .control-group(data-bind='css: {\'error\': !firstName.isValid()}')
-                        label.control-label(for='inputError') First Name
                         .controls
                             input.span4(type='text', placeholder='Your First Name', data-bind='validationOptions: { insertMessages: false }, value: firstName, valueUpdate: \'afterkeydown\'')
-                            span.help-inline(data-bind='visible: !firstName.isValid()') First name is required
+                            //span.help-inline(data-bind='visible: !firstName.isValid()') First name is required
 
                     .control-group(data-bind='css: {\'error\': !lastName.isValid()}')
-                        label.control-label(for='inputError') Last Name
                         .controls
                             input.span4(type='text', placeholder='Your Last Name', data-bind='validationOptions: { insertMessages: false }, value: lastName, valueUpdate: \'afterkeydown\'')
-                            span.help-inline(data-bind='visible: !lastName.isValid()') Last name is required
+                            //span.help-inline(data-bind='visible: !lastName.isValid()') Last name is required
 
                     .control-group(data-bind='css: {\'error\': !email.isValid()}')
-                        label.control-label(for='inputError') Email
                         .controls
-                            .input-prepend
-                                span.add-on
-                                    i.icon-envelope
-                                input.span4(type='text', placeholder='Your email address', data-bind='validationOptions: { insertMessages: false }, value: email, valueUpdate: \'afterkeydown\'')
-                            span.help-inline(data-bind='visible: !email.isValid()') A correct email address is required
+                            input.span4(type='text', placeholder='Your email address', data-bind='validationOptions: { insertMessages: false }, value: email, valueUpdate: \'afterkeydown\'')
+                            //span.help-inline(data-bind='visible: !email.isValid()') A correct email address is required
 
                     label
                         | Subject
                     select(data-bind='options: messageOptions, value: messageSubject, optionsCaption: \'Select one\'')
 
                     .control-group(data-bind='css: {\'error\': !message.isValid()}')
-                        label.control-label(for='inputError') Message
                         .controls
-                            textarea#message.span4.input-xlarge(name='message', rows='10', data-bind='validationOptions: { insertMessages: false }, value: message, valueUpdate: \'afterkeydown\'')
-                            span.help-inline(data-bind='visible: !message.isValid()') A message is required
+                            textarea#message.span4.input-xlarge(name='message', placeholder='Enter your message', rows='10', data-bind='validationOptions: { insertMessages: false }, value: message, valueUpdate: \'afterkeydown\'')
+                            //span.help-inline(data-bind='visible: !message.isValid()') A message is required
 
                     br
                     br
