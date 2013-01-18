@@ -1,13 +1,16 @@
 extends layout
 
 block header
+    script(type='text/javascript')
+        require(['lib/knockout', 'viewmodels/MainViewModel', 'lib/domReady!'], function(ko, viewModel) {
+            ko.applyBindings(new viewModel());
+        });
+
     script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDs-tp9HvtxPEz1J8goLkQzQ-6vQSKxF3k&sensor=false')
 
     script(type='text/javascript')
 
         $(function(){
-
-
 
             var myLatlng = new google.maps.LatLng(-33.885694,151.211776);
               var mapOptions = {
@@ -27,11 +30,12 @@ block header
 
 block content
 
+
     .row-fluid#whatwedo
         ul.thumbnails
             li.span4
-                .thumbnail
-                    img(src='/img/elements/dovetail_1.jpg', alt='')
+                .thumbnail(style='height: 450px')
+                    img(src='/img/elements/dovetail_1_300.jpg', alt='')
                     .caption
                         h3 We are
 
@@ -40,8 +44,8 @@ block content
                         p We work with organisations in Australia and NZ to deliver their small or medium-sized IT projects reliably and cost effectively.
 
             li.span4
-                .thumbnail
-                    img(src='/img/elements/dovetail_2.jpg', alt='')
+                .thumbnail(style='height: 450px')
+                    img(src='/img/elements/dovetail_2_300.jpg', alt='')
                     .caption
                         h3 We help
 
@@ -50,17 +54,14 @@ block content
                         p We subsequently engage the applicable technical partners, build a dedicated project team and manage the project.
 
             li.span4
-                .thumbnail
-                    img(src='/img/elements/dovetail_3.jpg', alt='')
+                .thumbnail(style='height: 450px')
+                    img(src='/img/elements/dovetail_3_300.jpg', alt='')
                     .caption
                         h3 We can
 
                         p help you develop web services and applications for PC & Notebooks, Smartphones, Tablets and Web TV.
 
                         p Or we can help you integrate new services developed by other IT vendors into your existing technical landscape.
-
-
-
 
 
     .row
@@ -70,11 +71,11 @@ block content
 
 
 
-            .media
-                a.pull-left(href="#")
-                    img.media-object(src="/img/elements/dovetail_4.jpg")
+            .row
+                .span4
+                    img.media-object(src="/img/elements/dovetail_4_400.jpg")
 
-                .media-body
+                .span8
                     h2.media-heading Technical services
 
 
@@ -103,14 +104,11 @@ block content
 
             hr#methodology
 
+            .row
+                .span6
+                    img(src="/img/elements/dovetail_5_700.jpg")
 
-
-            .media
-                a.pull-left(href="#")
-                    img.media-object(src="/img/elements/dovetail_5.jpg")
-
-                .media-body
-
+                .span6
                     h2.media-heading Methodology
 
                     p We work with organisations during any or all of the project life cycle phases.
@@ -136,11 +134,11 @@ block content
 
             hr#about
 
-            .media
-                a.pull-left(href="#")
-                    img.media-object(src="/img/elements/dovetail_6.jpg")
+            .row
+                .span4
+                    img.media-object.thumbnail(src="/img/elements/dovetail_6_400.jpg")
 
-                .media-body
+                .span8
 
                     h2.media-heading About
 
@@ -157,7 +155,7 @@ block content
 
                 img.media-object(src="/img/elements/dovetail_7.jpg")
 
-            .span6
+            .span5
 
 
                 h2.media-heading Contact
@@ -168,12 +166,53 @@ block content
 
                 p Investors, please email our drop box with any enquiries or let us know when we can contact you to discuss your interest.
 
+
+                form.well
+
+                    .control-group(data-bind='css: {\'error\': !firstName.isValid()}')
+                        label.control-label(for='inputError') First Name
+                        .controls
+                            input.span4(type='text', placeholder='Your First Name', data-bind='validationOptions: { insertMessages: false }, value: firstName, valueUpdate: \'afterkeydown\'')
+                            span.help-inline(data-bind='visible: !firstName.isValid()') First name is required
+
+                    .control-group(data-bind='css: {\'error\': !lastName.isValid()}')
+                        label.control-label(for='inputError') Last Name
+                        .controls
+                            input.span4(type='text', placeholder='Your Last Name', data-bind='validationOptions: { insertMessages: false }, value: lastName, valueUpdate: \'afterkeydown\'')
+                            span.help-inline(data-bind='visible: !lastName.isValid()') Last name is required
+
+                    .control-group(data-bind='css: {\'error\': !email.isValid()}')
+                        label.control-label(for='inputError') Email
+                        .controls
+                            .input-prepend
+                                span.add-on
+                                    i.icon-envelope
+                                input.span4(type='text', placeholder='Your email address', data-bind='validationOptions: { insertMessages: false }, value: email, valueUpdate: \'afterkeydown\'')
+                            span.help-inline(data-bind='visible: !email.isValid()') A correct email address is required
+
+                    label
+                        | Subject
+                    select(data-bind='options: messageOptions, value: messageSubject, optionsCaption: \'Select one\'')
+
+                    .control-group(data-bind='css: {\'error\': !message.isValid()}')
+                        label.control-label(for='inputError') Message
+                        .controls
+                            textarea#message.span4.input-xlarge(name='message', rows='10', data-bind='validationOptions: { insertMessages: false }, value: message, valueUpdate: \'afterkeydown\'')
+                            span.help-inline(data-bind='visible: !message.isValid()') A message is required
+
+                    br
+                    br
+                    button.btn.btn-primary(data-bind='click: sendMessage, enable: isValid') Send
+
+
+            .span4
+
+                script(type='text/javascript', src='http://download.skype.com/share/skypebuttons/js/skypeCheck.js')
+                a(href='skype:dovetaildhe?call')
+                    img(src='http://download.skype.com/share/skypebuttons/buttons/call_blue_white_124x52.png', style='border: none;', width='124', height='52', alt='Skype Me™!')
+
+                strong dovetaildhe
                 hr
-
-                #map_canvas(style='width: 100%; height: 400px;')
-
-
-            .span3
 
                 ul.nav.nav-list
                     li
@@ -200,15 +239,10 @@ block content
                         span
                             i.icon-home
                             span Level 3, 2 Lacey St, Sydney, Australia
+
                 hr
 
-                script(type='text/javascript', src='http://download.skype.com/share/skypebuttons/js/skypeCheck.js')
-                a(href='skype:dovetaildhe?call')
-                    img(src='http://download.skype.com/share/skypebuttons/buttons/call_blue_white_124x52.png', style='border: none;', width='124', height='52', alt='Skype Me™!')
-
-                strong dovetaildhe
-
-
+                #map_canvas(style='width: 100%; height: 300px;')
 
 
 
