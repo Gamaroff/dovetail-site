@@ -14,17 +14,9 @@ html
         script(type='text/javascript', src='/js/lib/bootstrap.min.js')
         script(type='text/javascript', src='/js/lib/smoothscroll.js')
 
-
-        style
-            body {
-                padding-top: 60px; /* When using the navbar-top-fixed */
-            }
-
-
         block header
 
     body(data-spy='scroll', data-target='.navbar')
-
 
         .navbar.navbar-fixed-top
             .navbar-inner.container
@@ -41,7 +33,7 @@ html
                         a.smoothScroll(href='#about') About
                     li
                         a.smoothScroll(href='#contact') Contact
-        .container
+        .container(style='margin-top: 60px')
             block content
 
 
