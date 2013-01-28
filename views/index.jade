@@ -193,7 +193,9 @@ block content
 
                     br
                     br
-                    button.btn.btn-primary(data-bind='click: sendMessage, enable: isValid') Send
+                    button.btn.btn-primary(data-bind='click: sendEmail, enable: isValid, visible: !isBusy()') Send
+                    p
+                        span(data-bind='text: information')
 
 
             .span4

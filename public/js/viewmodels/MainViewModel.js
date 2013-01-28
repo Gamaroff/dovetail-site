@@ -21,6 +21,12 @@ define(['lib/knockout', 'extenders/knockout.validation'], function (ko) {
         self.messageSubject = ko.observable();
         self.email = ko.observable().extend({required : true, email : true});
 
+        self.contactName = ko.observable().extend({required:true});
+        self.information = ko.observable();
+
+        self.sending = ko.observable(false);
+
+
         self.isValid = ko.computed(function () {
             var result = true;
 
@@ -45,8 +51,42 @@ define(['lib/knockout', 'extenders/knockout.validation'], function (ko) {
         });
 
 
-        self.sendMessage = function () {
-            alert(self.message());
+        self.sendEmail = function () {
+
+            self.isBusy(true);
+            self.information(null);
+            if (!self.isValid()) {
+                self.information('Please ensure all fields are correct');
+            }
+            else {
+                self.sending(true);
+
+                self.information('Sending message...');
+
+                var dto = {
+                    name: self.firstName() + ' ' + self.lastName(),
+                    email: self.email(),
+                    message: self.message()
+                };
+
+                $.post('/send', dto, function (data) {
+                    self.sending(false);
+                    self.isBusy(false);
+
+                    if (data.err) {
+                        self.information('Your message was not sent. Please try emailing us at info@dovetaildhe.com');
+                    }
+                    else {
+
+                        self.information('Your message has been sent');
+                        self.firstName(null);
+                        self.lastName(null);
+                        self.email(null);
+                        self.message(null);
+                    }
+                });
+
+            }
         };
 
     };

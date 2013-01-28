@@ -9,6 +9,8 @@
         "express"    : "3.0.4",
         "jade"       : "*",
         "nodemailer" : "*",
-        "config"     : "*"
+        "config"     : "*",
+        "moment":">= 1.6.2",
+        "underscore":">= 1.3.3"
     }
 }

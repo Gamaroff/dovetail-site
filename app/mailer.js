@@ -20,25 +20,21 @@ function Mailer() {
         }
     });
 
-    self.sendMail = function (to, subject, html) {
+    self.sendMail = function (to, subject, html, callback) {
 
 
         // setup e-mail data with unicode symbols
         var mailOptions = {
-            from    : 'Invirohub <' + CONFIG.user + '>', // sender address
+            from    : 'Dovetail <' + CONFIG.user + '>', // sender address
             to      : to, // list of receivers
             subject : subject, // Subject line
             html    : html // html body
         };
 
         // send mail with defined transport object
-        smtpTransport.sendMail(mailOptions, function (error, response) {
-            if (error) {
-                //console.log(error);
-            }
-            else {
-                // console.log('Message sent: ' + response.message);
-            }
+        smtpTransport.sendMail(mailOptions, function (err, result) {
+
+            callback(err, result);
 
             // if you don't want to use this transport object anymore, uncomment following line
             //smtpTransport.close(); // shut down the connection pool, no more messages

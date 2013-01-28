@@ -6,7 +6,7 @@
 module.exports = {
     Email        : {
         service  : 'Gmail',
-        user     : 'info@invirohub.com',
-        password : 'Invirohub101'
+        user     : 'webform@dovetaildhe.com',
+        password : 'lorien001'
     }
 };
