@@ -17,7 +17,7 @@ function MailRoutes() {
         var senderEmail = req.body.email;
         var senderMessage = req.body.message;
 
-        var to = ['lorien@gamaroff.org'];
+        var to = ['dominic@dovetaildhe.com'];
         var subject = 'Email from dovetaildhe.com';
         var html = '<p>A Mail has been received via dovetaildhe.com with the following contents:</p>' +
             '<p><br/></p><p>' + senderMessage + '</p><hr>' +
